@@ -4,12 +4,12 @@ public class Sonnet {
 
     private List<Author> author;
     private String title;
-    private List<Lines> lines;
+    private List<Lines> line;
 
-    public Sonnet(List<Author> author, String title, List<Lines> lines) {
+    public Sonnet(List<Author> author, String title, List<Lines> line) {
         this.author = author;
         this.title = title;
-        this.lines = lines;
+        this.line = line;
     }
 
     public List<Author> getAuthor() {
@@ -29,11 +29,11 @@ public class Sonnet {
     }
 
     public List<Lines> getLines() {
-        return lines;
+        return line;
     }
 
     public void setLines(List<Lines> lines) {
-        this.lines = lines;
+        this.line = lines;
     }
 
     @Override
@@ -41,7 +41,7 @@ public class Sonnet {
         return "Sonnet{" +
                 "author=" + author +
                 ", title='" + title + '\'' +
-                ", lines=" + lines +
+                ", lines=" + line +
                 '}';
     }
 }
