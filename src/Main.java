@@ -1,6 +1,7 @@
 
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
 import javax.swing.text.html.parser.Element;
@@ -40,25 +41,36 @@ public class Main {
             FileReader file = new FileReader(nameDoc);
             ArrayList<String> list = new ArrayList<>();
             Scanner wayFiles = new Scanner(file);
+
+            Sonnet sonnet = null;
+
             FileWriter writer1 = new FileWriter("f.txt");
             DocumentBuilderFactory factory = DocumentBuilderFactory.newDefaultInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            Document document = builder.parse(nameDoc);
+            Document doc = null;
+            try {
+                doc = factory.newDocumentBuilder().parse(nameDoc);
+
+            } catch (SAXException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } catch (ParserConfigurationException e) {
+                System.out.println("Ошибка при парсинге.");
+                return;
+            }
+
+            Node sonnetNode = doc.getFirstChild();
 
             while (wayFiles.hasNextLine()) {
                 String amp = wayFiles.nextLine();
                 if (amp.startsWith("<")) {
-
+                    System.out.println(sonnetNode.getNodeName());
                     writer1.write(amp);
                 }
             }
         } catch (FileNotFoundException e) {
             System.out.println("Неверное название файла");
         } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ParserConfigurationException e) {
-            throw new RuntimeException(e);
-        } catch (SAXException e) {
             throw new RuntimeException(e);
         }
 

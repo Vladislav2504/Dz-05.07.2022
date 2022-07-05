@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <sonnet type = "Shakespearean">
-    <aothor>
+    <author>
         <lastName>Shakespearean</lastName>
         <FfirstName>William</FfirstName>
         <nationality>British</nationality>
         <yearOfBrith>1564</yearOfBrith>
         <yearOfDeath>1616</yearOfDeath>
-    </aothor>
+    </author>
     <title>Sonnet 130</title>
     <lines>
         <line>My mistress' eyes are nothing like the sum.</line>
